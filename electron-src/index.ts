@@ -16,7 +16,7 @@ const PY_EXE_FILE = path.join(
 );
 
 const PY_ENTRY_FILE = path.join(
-  __dirname, "web/app.py"
+  __dirname, "server/main.py"
 );
 
 const startPythonSubprocess = () => {
@@ -52,6 +52,7 @@ const createMainWindow = () => {
 
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
+  startPythonSubprocess();
   await prepareNext('./renderer')
   createMainWindow();
 })
